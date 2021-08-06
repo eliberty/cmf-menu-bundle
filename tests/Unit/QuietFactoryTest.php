@@ -47,14 +47,4 @@ class QuietFactoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($homeMenuItem, $factory->createItem('Home', $firstOptions));
     }
-
-    public function testDisallowEmptyItemsReturnsNull()
-    {
-        $this->innerFactory->createItem('Home', ['route' => 'not_existent'])
-            ->willThrow('Symfony\Component\Routing\Exception\RouteNotFoundException');
-
-        $factory = new QuietFactory($this->innerFactory->reveal(), $this->logger->reveal(), false);
-
-        $this->assertNull($factory->createItem('Home', ['route' => 'not_existent']));
-    }
 }

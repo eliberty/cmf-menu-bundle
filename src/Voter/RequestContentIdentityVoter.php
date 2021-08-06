@@ -72,11 +72,11 @@ class RequestContentIdentityVoter implements VoterInterface
     /**
      * {@inheritdoc}
      */
-    public function matchItem(ItemInterface $item)
+    public function matchItem(ItemInterface $item): ?bool
     {
         $request = $this->getRequest();
         if (!$request) {
-            return;
+            return null;
         }
 
         $content = $item->getExtra('content');
@@ -87,6 +87,8 @@ class RequestContentIdentityVoter implements VoterInterface
         ) {
             return true;
         }
+
+        return null;
     }
 
     private function getRequest()

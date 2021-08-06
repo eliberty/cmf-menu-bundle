@@ -44,7 +44,6 @@ class Configuration implements ConfigurationInterface
                 ->end()
 
                 ->scalarNode('content_url_generator')->defaultValue('router')->end()
-                ->booleanNode('allow_empty_items')->defaultFalse()->end()
 
                 ->arrayNode('voters')
                     ->children()

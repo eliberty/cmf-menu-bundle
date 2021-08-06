@@ -45,7 +45,7 @@ class ContentExtension implements ExtensionInterface
      *
      * @return array
      */
-    public function buildOptions(array $options)
+    public function buildOptions(array $options): array
     {
         $options = array_merge([
             'content' => null,
@@ -86,7 +86,7 @@ class ContentExtension implements ExtensionInterface
      * @param ItemInterface $item
      * @param array         $options
      */
-    public function buildItem(ItemInterface $item, array $options)
+    public function buildItem(ItemInterface $item, array $options): void
     {
     }
 
@@ -97,7 +97,7 @@ class ContentExtension implements ExtensionInterface
      *
      * @return string The type of link to use
      */
-    private function determineLinkType(array $options)
+    private function determineLinkType(array $options): string
     {
         if (!empty($options['uri'])) {
             return 'uri';
@@ -122,7 +122,7 @@ class ContentExtension implements ExtensionInterface
      * @throws \InvalidArgumentException if $linkType is not one of the known
      *                                   link types
      */
-    private function validateLinkType($linkType)
+    private function validateLinkType($linkType): void
     {
         $linkTypes = ['uri', 'route', 'content'];
         if (!in_array($linkType, $linkTypes)) {

@@ -12,6 +12,7 @@
 namespace Symfony\Cmf\Bundle\MenuBundle\Loader;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use Knp\Menu\Loader\NodeLoader;
 use Knp\Menu\NodeInterface;
 use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\Menu;
@@ -40,7 +41,7 @@ class VotingNodeLoader extends NodeLoader
         $this->dispatcher = $dispatcher;
     }
 
-    public function load($data)
+    public function load($data): ItemInterface
     {
         if (!$this->supports($data)) {
             throw new \InvalidArgumentException(sprintf(
@@ -57,14 +58,10 @@ class VotingNodeLoader extends NodeLoader
                 return $this->menuFactory->createItem('');
             }
 
-            return;
+            throw new \RuntimeException('No menu available to skip node');
         }
 
         $item = $event->getItem() ?: $this->menuFactory->createItem($data->getName(), $data->getOptions());
-
-        if (empty($item)) {
-            return;
-        }
 
         if ($event->isSkipChildren()) {
             return $item;

@@ -13,6 +13,7 @@ namespace Symfony\Cmf\Bundle\MenuBundle;
 
 use Knp\Menu\Factory\ExtensionInterface;
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 use LogicException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
@@ -54,7 +55,7 @@ class QuietFactory implements FactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createItem($name, array $options = [])
+    public function createItem($name, array $options = []): ItemInterface
     {
         try {
             return $this->innerFactory->createItem($name, $options);
@@ -64,10 +65,6 @@ class QuietFactory implements FactoryInterface
                     sprintf('An exception was thrown while creating a menu item called "%s"', $name),
                     ['exception' => $e]
                 );
-            }
-
-            if (!$this->allowEmptyItems) {
-                return;
             }
 
             // remove route and content options
