@@ -20,9 +20,9 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('cmf_menu');
 
-        $treeBuilder->root('cmf_menu')
+        $treeBuilder->getRootNode()
             ->fixXmlConfig('voter')
             ->children()
                 ->arrayNode('persistence')

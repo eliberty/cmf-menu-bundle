@@ -15,26 +15,31 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "symfony/framework-bundle": "^2.8 || ^3.3 || ^4.0",
-        "symfony/validator": "^2.8 || ^3.3 || ^4.0",
-        "knplabs/knp-menu-bundle": "^2.2.0",
-        "knplabs/knp-menu": "^2.0.0"
+        "php": ">=7.1",
+        "symfony/framework-bundle": "^4.4 || ^5.0",
+        "symfony/validator": "^4.0 || ^5.0",
+        "knplabs/knp-menu-bundle": "^3.1.0"
     },
     "require-dev": {
         "symfony/monolog-bundle": "~3.1",
         "symfony/phpunit-bridge": "^3.3 || ^4.0",
         "symfony-cmf/routing-bundle": "^1.4 || ^2.0",
-        "symfony-cmf/testing": "^2.1.8",
+        "symfony-cmf/testing": "^3.3.0",
         "twig/twig": "^1.35 || ^2.4.4",
-        "symfony-cmf/core-bundle": "^2.1",
-        "doctrine/phpcr-odm": "^1.4.2 || ^2.0"
+        "symfony-cmf/core-bundle": "dev-master",
+        "doctrine/phpcr-odm": "^1.4.2 || ^2.0",
+        "jackalope/jackalope": "^1.4",
+        "jackalope/jackalope-doctrine-dbal": "^1.7"
     },
     "suggest": {
         "doctrine/phpcr-odm": "To enable support for the PHPCR ODM documents (^1.4)",
         "doctrine/phpcr-bundle": "To enable support for the PHPCR ODM documents",
         "symfony-cmf/core-bundle": "To enable support for publishing workflow"
     },
+    "repositories": [
+        { "type": "vcs", "url": "git@github.com:NETFORMIC-GmbH/symfony-cmf-core-bundle.git" }
+    ],
+
     "autoload": {
         "psr-4": {
             "Symfony\\Cmf\\Bundle\\MenuBundle\\": "src/"
