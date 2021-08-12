@@ -60,7 +60,7 @@ class MenuContentVoter implements VoterInterface
      */
     public function vote(TokenInterface $token, $object, array $attributes)
     {
-        if (!$this->supportsClass(get_class($object))) {
+        if ($object === null || !$this->supportsClass(get_class($object))) {
             return self::ACCESS_ABSTAIN;
         }
         /** @var PublishWorkflowChecker $publishWorkflowChecker */
