@@ -1,5 +1,5 @@
 {
-    "name": "symfony-cmf/menu-bundle",
+    "name": "eliberty/cmf-menu-bundle",
     "type": "symfony-bundle",
     "description": "Symfony CMF Menu Bundle",
     "keywords": [
