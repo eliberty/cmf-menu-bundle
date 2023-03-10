@@ -25,15 +25,9 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class VotingNodeLoader extends NodeLoader
 {
-    /**
-     * @var EventDispatcherInterface
-     */
-    private $dispatcher;
+    private \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher;
 
-    /**
-     * @var FactoryInterface
-     */
-    private $menuFactory;
+    private \Knp\Menu\FactoryInterface $menuFactory;
 
     public function __construct(FactoryInterface $factory, EventDispatcherInterface $dispatcher)
     {

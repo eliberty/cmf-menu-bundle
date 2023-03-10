@@ -26,15 +26,9 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  */
 class QuietFactory implements FactoryInterface
 {
-    /**
-     * @var FactoryInterface
-     */
-    private $innerFactory;
+    private \Knp\Menu\FactoryInterface $innerFactory;
 
-    /**
-     * @var LoggerInterface|null
-     */
-    private $logger;
+    private ?\Psr\Log\LoggerInterface $logger = null;
 
     /**
      * Whether to return null (if value is false) or a MenuItem

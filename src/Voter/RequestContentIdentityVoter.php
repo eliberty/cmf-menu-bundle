@@ -32,15 +32,9 @@ class RequestContentIdentityVoter implements VoterInterface
      */
     private $requestKey;
 
-    /**
-     * @var RequestStack|null
-     */
-    private $requestStack;
+    private ?\Symfony\Component\HttpFoundation\RequestStack $requestStack = null;
 
-    /**
-     * @var Request|null
-     */
-    private $request;
+    private ?\Symfony\Component\HttpFoundation\Request $request = null;
 
     /**
      * @param string $requestKey The key to look up the content in the request

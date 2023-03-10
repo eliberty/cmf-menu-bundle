@@ -25,10 +25,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ContentExtension implements ExtensionInterface
 {
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $contentRouter;
+    private \Symfony\Component\Routing\Generator\UrlGeneratorInterface $contentRouter;
 
     /**
      * @param UrlGeneratorInterface $contentRouter A router to generate URLs based on the content object
@@ -66,7 +63,7 @@ class ContentExtension implements ExtensionInterface
 
             $options['uri'] = $this->contentRouter->generate(
                 $options['content'],
-                isset($options['routeParameters']) ? $options['routeParameters'] : [],
+                $options['routeParameters'] ?? [],
                 (isset($options['routeAbsolute']) && $options['routeAbsolute']) ? UrlGeneratorInterface::ABSOLUTE_URL : UrlGeneratorInterface::ABSOLUTE_PATH
             );
         }

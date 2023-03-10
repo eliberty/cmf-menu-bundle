@@ -23,10 +23,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
  */
 class CreateMenuItemFromNodeListener
 {
-    /**
-     * @var AuthorizationCheckerInterface
-     */
-    private $publishWorkflowChecker;
+    private \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $publishWorkflowChecker;
 
     /**
      * The permission to check for when doing the publish workflow check.

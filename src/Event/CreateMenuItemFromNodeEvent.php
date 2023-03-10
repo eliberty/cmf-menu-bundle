@@ -26,29 +26,19 @@ use Symfony\Component\EventDispatcher\Event;
  */
 class CreateMenuItemFromNodeEvent extends Event
 {
-    /**
-     * @var NodeInterface
-     */
-    private $node;
+    private \Knp\Menu\NodeInterface $node;
 
-    /**
-     * @var ItemInterface
-     */
-    private $item;
+    private ?\Knp\Menu\ItemInterface $item = null;
 
     /**
      * Whether or not to skip processing of this node.
-     *
-     * @var bool
      */
-    private $skipNode = false;
+    private bool $skipNode = false;
 
     /**
      * Whether or not to skip processing of child nodes.
-     *
-     * @var bool
      */
-    private $skipChildren = false;
+    private bool $skipChildren = false;
 
     /**
      * @param NodeInterface $node

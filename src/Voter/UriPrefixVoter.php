@@ -31,17 +31,12 @@ use Symfony\Component\Routing\Route;
  */
 class UriPrefixVoter implements VoterInterface
 {
-    /**
-     * @var RequestStack|null
-     */
-    private $requestStack;
+    private ?\Symfony\Component\HttpFoundation\RequestStack $requestStack = null;
 
     /**
      * @deprecated Use the request stack instead
-     *
-     * @var Request|null
      */
-    private $request;
+    private ?\Symfony\Component\HttpFoundation\Request $request = null;
 
     public function __construct(RequestStack $requestStack = null)
     {

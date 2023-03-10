@@ -24,10 +24,7 @@ use PHPCR\Util\PathHelper;
 
 class PhpcrMenuProvider implements MenuProviderInterface
 {
-    /**
-     * @var NodeLoader
-     */
-    private $loader;
+    private \Knp\Menu\Loader\NodeLoader $loader;
 
     /**
      * base for menu ids.
@@ -39,10 +36,8 @@ class PhpcrMenuProvider implements MenuProviderInterface
     /**
      * Depth to use to prefetch all menu nodes. Only used if > 0, otherwise
      * no prefetch is attempted.
-     *
-     * @var int
      */
-    private $prefetch = 10;
+    private int $prefetch = 10;
 
     /**
      * If this is null, the manager registry will return the default manager.

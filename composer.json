@@ -16,9 +16,9 @@
     ],
     "require": {
         "php": ">=7.4",
-        "symfony/framework-bundle": "^4.4 || ^5.0",
-        "symfony/validator": "^4.0 || ^5.0",
-        "knplabs/knp-menu-bundle": "^3.1.0"
+        "symfony/framework-bundle": "^3.4 || ^4.4 || ^5.0",
+        "symfony/validator": "^3.4 || ^4.0 || ^5.0",
+        "knplabs/knp-menu-bundle": "^3.2.0"
     },
     "require-dev": {
         "symfony/monolog-bundle": "~3.1",
@@ -29,7 +29,9 @@
         "symfony-cmf/core-bundle": "dev-master",
         "doctrine/phpcr-odm": "^1.4.2 || ^2.0",
         "jackalope/jackalope": "^1.4",
-        "jackalope/jackalope-doctrine-dbal": "^1.7"
+        "jackalope/jackalope-doctrine-dbal": "^1.7",
+        "rector/rector": "^0.15.21",
+        "phpcompatibility/php-compatibility": "^9.3"
     },
     "suggest": {
         "doctrine/phpcr-odm": "To enable support for the PHPCR ODM documents (^1.4)",
@@ -54,5 +56,9 @@
         "branch-alias": {
             "dev-master": "2.2-dev"
         }
+    },
+    "scripts": {
+        "lint:rector": "./vendor/bin/rector --dry-run",
+        "sniffer:php8": "./vendor/bin/phpcs -p ./src --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility --runtime-set testVersion 8.2"
     }
 }

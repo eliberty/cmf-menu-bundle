@@ -18,5 +18,5 @@ final class Events
      *
      * The event object is a CreateMenuItemFromNodeEvent.
      */
-    const CREATE_ITEM_FROM_NODE = 'cmf_menu.create_menu_item_from_node';
+    public const CREATE_ITEM_FROM_NODE = 'cmf_menu.create_menu_item_from_node';
 }
