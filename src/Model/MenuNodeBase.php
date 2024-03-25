@@ -359,7 +359,7 @@ class MenuNodeBase implements NodeInterface
             $children[] = $child;
         }
 
-        return $children;
+        return new ArrayCollection($children);
     }
 
     /**
