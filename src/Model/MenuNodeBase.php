@@ -174,7 +174,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getName(): string
     {
-        return $this->name;
+        return $this->name ?? uniqid('menu_node_');
     }
 
     /**
