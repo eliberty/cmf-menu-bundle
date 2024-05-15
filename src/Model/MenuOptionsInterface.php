@@ -25,7 +25,7 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return bool
      */
-    public function getDisplay();
+    public function getDisplay(): bool;
 
     /**
      * Set whether or not this menu should be displayed.
@@ -34,14 +34,14 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface
      */
-    public function setDisplay($bool);
+    public function setDisplay($bool): MenuOptionsInterface;
 
     /**
      * Whether or not this menu should show its children.
      *
      * @return bool
      */
-    public function getDisplayChildren();
+    public function getDisplayChildren(): bool;
 
     /**
      * Set whether or not this menu should show its children.
@@ -50,14 +50,14 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface
      */
-    public function setDisplayChildren($bool);
+    public function setDisplayChildren($bool): MenuOptionsInterface;
 
     /**
      * Return the attributes associated with this menu node.
      *
      * @return array
      */
-    public function getAttributes();
+    public function getAttributes(): array;
 
     /**
      * Set the attributes associated with this menu node.
@@ -66,7 +66,7 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
-    public function setAttributes(array $attributes);
+    public function setAttributes(array $attributes): MenuOptionsInterface;
 
     /**
      * Return the given attribute, optionally specifying a default value.
@@ -76,7 +76,7 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return string
      */
-    public function getAttribute($name, $default = null);
+    public function getAttribute(string $name, ?string $default = null): string;
 
     /**
      * Set the named attribute.
@@ -86,14 +86,14 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
-    public function setAttribute($name, $value);
+    public function setAttribute($name, $value): MenuOptionsInterface;
 
     /**
      * Get the link HTML attributes.
      *
      * @return array
      */
-    public function getLinkAttributes();
+    public function getLinkAttributes(): array;
 
     /**
      * Set the link HTML attributes as associative array.
@@ -102,14 +102,14 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
-    public function setLinkAttributes($linkAttributes);
+    public function setLinkAttributes($linkAttributes): MenuOptionsInterface;
 
     /**
      * Return the children attributes.
      *
      * @return array
      */
-    public function getChildrenAttributes();
+    public function getChildrenAttributes(): array;
 
     /**
      * Set the children attributes.
@@ -118,14 +118,14 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
-    public function setChildrenAttributes(array $childrenAttributes);
+    public function setChildrenAttributes(array $childrenAttributes): MenuOptionsInterface;
 
     /**
      * Get the label HTML attributes.
      *
      * @return array
      */
-    public function getLabelAttributes();
+    public function getLabelAttributes(): array;
 
     /**
      * Set the label HTML attributes as associative array.
@@ -134,5 +134,5 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
-    public function setLabelAttributes($labelAttributes);
+    public function setLabelAttributes($labelAttributes): MenuOptionsInterface;
 }

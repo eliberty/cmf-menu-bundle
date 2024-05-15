@@ -84,7 +84,7 @@ class MenuNode extends ModelMenuNode implements HierarchyInterface
      *
      * @return NodeInterface - The newly added child node
      */
-    public function addChild(NodeInterface $child)
+    public function addChild(NodeInterface $child): NodeInterface
     {
         if ($child instanceof self) {
             $child->setParentObject($this);

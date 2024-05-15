@@ -69,7 +69,7 @@ class Menu extends ModelMenu implements HierarchyInterface
      *
      * @return Menu - this instance
      */
-    public function setPosition($parent, $name)
+    public function setPosition($parent, $name): NodeInterface
     {
         $this->setParentObject($parent);
         $this->setName($name);
@@ -84,7 +84,7 @@ class Menu extends ModelMenu implements HierarchyInterface
      *
      * @return NodeInterface - The newly added child node
      */
-    public function addChild(NodeInterface $child)
+    public function addChild(NodeInterface $child): NodeInterface
     {
         if ($child instanceof MenuNode) {
             $child->setParentObject($this);
