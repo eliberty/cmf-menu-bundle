@@ -36,7 +36,7 @@ class MenuNodeBase implements NodeInterface
      *
      * @var string
      */
-    protected string $name = '';
+    protected ?string $name = '';
 
     /**
      * Child menu nodes.
@@ -50,19 +50,19 @@ class MenuNodeBase implements NodeInterface
      *
      * @var string
      */
-    protected string $label = '';
+    protected ?string $label = '';
 
     /**
      * @var string
      */
-    protected ?string $uri;
+    protected ?string $uri = '';
 
     /**
      * The name of the route to generate.
      *
      * @var string
      */
-    protected ?string $route;
+    protected ?string $route = '';
 
     /**
      * HTML attributes to add to the individual menu element.
@@ -175,7 +175,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getName(): string
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 
     /**
@@ -199,7 +199,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getLabel(): string
     {
-        return $this->label;
+        return $this->label ?? '';
     }
 
     /**
@@ -209,7 +209,7 @@ class MenuNodeBase implements NodeInterface
      *
      * @return MenuNodeBase - this instance
      */
-    public function setLabel(string $label): NodeInterface
+    public function setLabel(?string $label): NodeInterface
     {
         $this->label = $label;
 
@@ -233,7 +233,7 @@ class MenuNodeBase implements NodeInterface
      *
      * @return MenuNodeBase - this instance
      */
-    public function setUri(string $uri): NodeInterface
+    public function setUri(?string $uri): NodeInterface
     {
         $this->uri = $uri;
 
@@ -257,7 +257,7 @@ class MenuNodeBase implements NodeInterface
      *
      * @return MenuNodeBase - this instance
      */
-    public function setRoute($route): NodeInterface
+    public function setRoute(?string $route): NodeInterface
     {
         $this->route = $route;
 
