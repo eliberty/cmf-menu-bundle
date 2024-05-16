@@ -223,7 +223,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getUri(): string
     {
-        return $this->uri;
+        return $this->uri ?? '';
     }
 
     /**
@@ -247,7 +247,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getRoute(): string
     {
-        return $this->route;
+        return $this->route ?? '';
     }
 
     /**
@@ -271,7 +271,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getAttributes(): array
     {
-        return $this->attributes;
+        return $this->attributes ?? [];
     }
 
     /**
@@ -327,7 +327,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getChildrenAttributes(): array
     {
-        return $this->childrenAttributes;
+        return $this->childrenAttributes ?? [];
     }
 
     /**
@@ -398,7 +398,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getRouteParameters(): array
     {
-        return $this->routeParameters;
+        return $this->routeParameters ?? [];
     }
 
     /**
@@ -422,7 +422,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getExtras(): array
     {
-        return $this->extras;
+        return $this->extras|| [];
     }
 
     /**
@@ -446,7 +446,7 @@ class MenuNodeBase implements NodeInterface
      */
     public function getLinkAttributes(): array
     {
-        return $this->linkAttributes;
+        return $this->linkAttributes || [];
     }
 
     /**
