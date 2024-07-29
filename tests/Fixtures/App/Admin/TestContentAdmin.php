@@ -25,7 +25,7 @@ class TestContentAdmin extends Admin
 
     protected $baseRoutePattern = '/cmf/menu-test/content';
 
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
             ->addIdentifier('id', 'text')
@@ -39,7 +39,7 @@ class TestContentAdmin extends Admin
         ;
     }
 
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->with('form.group_general')
