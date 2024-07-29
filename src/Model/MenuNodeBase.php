@@ -185,7 +185,7 @@ class MenuNodeBase implements NodeInterface
      *
      * @return MenuNodeBase - this instance
      */
-    public function setName(string $name): NodeInterface
+    public function setName(?string $name): NodeInterface
     {
         $this->name = $name;
 
