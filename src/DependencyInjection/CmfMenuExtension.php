@@ -94,12 +94,12 @@ class CmfMenuExtension extends Extension
      *
      * @return string The XSD base path
      */
-    public function getXsdValidationBasePath()
+    public function getXsdValidationBasePath(): string|false
     {
         return __DIR__.'/../Resources/config/schema';
     }
 
-    public function getNamespace()
+    public function getNamespace(): string
     {
         return 'http://cmf.symfony.com/schema/dic/menu';
     }

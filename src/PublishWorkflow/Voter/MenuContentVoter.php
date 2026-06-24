@@ -58,7 +58,7 @@ class MenuContentVoter implements VoterInterface
      *
      * @param MenuNode $object
      */
-    public function vote(TokenInterface $token, $object, array $attributes)
+    public function vote(TokenInterface $token, $object, array $attributes): int
     {
         if ($object === null || !$this->supportsClass(get_class($object))) {
             return self::ACCESS_ABSTAIN;
