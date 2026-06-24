@@ -39,7 +39,7 @@ class QuietFactory implements FactoryInterface
      */
     private $allowEmptyItems;
 
-    public function __construct(FactoryInterface $innerFactory, LoggerInterface $logger = null, $allowEmptyItems = false)
+    public function __construct(FactoryInterface $innerFactory, ?LoggerInterface $logger = null, $allowEmptyItems = false)
     {
         $this->innerFactory = $innerFactory;
         $this->logger = $logger;

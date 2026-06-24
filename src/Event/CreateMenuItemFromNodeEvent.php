@@ -80,7 +80,7 @@ class CreateMenuItemFromNodeEvent extends Event
      *
      * @param ItemInterface $item Menu item to use
      */
-    public function setItem(ItemInterface $item = null)
+    public function setItem(?ItemInterface $item = null)
     {
         $this->item = $item;
     }

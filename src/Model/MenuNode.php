@@ -184,7 +184,7 @@ class MenuNode extends MenuNodeBase implements
     /**
      * {@inheritdoc}
      */
-    public function setPublishStartDate(\DateTime $date = null)
+    public function setPublishStartDate(?\DateTime $date = null)
     {
         $this->publishStartDate = $date;
     }
@@ -200,7 +200,7 @@ class MenuNode extends MenuNodeBase implements
     /**
      * {@inheritdoc}
      */
-    public function setPublishEndDate(\DateTime $date = null)
+    public function setPublishEndDate(?\DateTime $date = null)
     {
         $this->publishEndDate = $date;
     }

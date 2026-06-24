@@ -40,7 +40,7 @@ class RequestContentIdentityVoter implements VoterInterface
      * @param string $requestKey The key to look up the content in the request
      *                           attributes
      */
-    public function __construct($requestKey, RequestStack $requestStack = null)
+    public function __construct($requestKey, ?RequestStack $requestStack = null)
     {
         $this->requestKey = $requestKey;
         $this->requestStack = $requestStack;
@@ -49,7 +49,7 @@ class RequestContentIdentityVoter implements VoterInterface
     /**
      * @deprecated since version 2.2. Pass a RequestStack to the constructor instead.
      */
-    public function setRequest(Request $request = null)
+    public function setRequest(?Request $request = null)
     {
         @trigger_error(
             sprintf(
