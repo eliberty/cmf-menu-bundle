@@ -24,7 +24,7 @@ class Menu extends ModelMenu implements HierarchyInterface
      *
      * @return Menu - this instance
      */
-    public function setParentDocument($parent)
+    public function setParentDocument(object $parent): self
     {
         return $this->setParentObject($parent);
     }
@@ -34,7 +34,7 @@ class Menu extends ModelMenu implements HierarchyInterface
      *
      * @return object
      */
-    public function getParentDocument()
+    public function getParentDocument(): ?object
     {
         return $this->getParentObject();
     }

@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MenuBundle\Tests\Unit\Provider;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ODM\PHPCR\DocumentManagerInterface;
 use Knp\Menu\ItemInterface;
 use Knp\Menu\Loader\NodeLoader;
