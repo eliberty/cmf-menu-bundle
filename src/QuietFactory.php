@@ -26,9 +26,9 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  */
 class QuietFactory implements FactoryInterface
 {
-    private \Knp\Menu\FactoryInterface $innerFactory;
+    private FactoryInterface $innerFactory;
 
-    private ?\Psr\Log\LoggerInterface $logger = null;
+    private ?LoggerInterface $logger = null;
 
     /**
      * Whether to return null (if value is false) or a MenuItem
@@ -71,12 +71,10 @@ class QuietFactory implements FactoryInterface
     /**
      * Forward adding extensions to the wrapped factory.
      *
-     * @param ExtensionInterface $extension
      * @param int                $priority
-     *
      * @throws \Exception if the inner factory does not implement the addExtension method
      */
-    public function addExtension(ExtensionInterface $extension, $priority = 0)
+    public function addExtension(ExtensionInterface $extension, $priority = 0): void
     {
         if (!method_exists($this->innerFactory, 'addExtension')) {
             throw new LogicException(sprintf(

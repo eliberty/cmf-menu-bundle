@@ -11,12 +11,16 @@
 
 namespace Symfony\Cmf\Bundle\MenuBundle\Tests\Fixtures\App;
 
+use Knp\Bundle\MenuBundle\KnpMenuBundle;
+use Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle;
+use Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle;
+use Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle;
 use Symfony\Cmf\Component\Testing\HttpKernel\TestKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class Kernel extends TestKernel
 {
-    public function configure()
+    public function configure(): void
     {
         $this->requireBundleSets([
             'default',
@@ -24,14 +28,14 @@ class Kernel extends TestKernel
         ]);
 
         $this->addBundles([
-            new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new \Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle(),
-            new \Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
-            new \Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
+            new KnpMenuBundle(),
+            new CmfMenuBundle(),
+            new CmfCoreBundle(),
+            new CmfRoutingBundle(),
         ]);
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__.'/config/config.php');
         $loader->load(__DIR__.'/config/test-services.xml');

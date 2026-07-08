@@ -31,12 +31,12 @@ use Symfony\Component\Routing\Route;
  */
 class UriPrefixVoter implements VoterInterface
 {
-    private ?\Symfony\Component\HttpFoundation\RequestStack $requestStack = null;
+    private ?RequestStack $requestStack = null;
 
     /**
      * @deprecated Use the request stack instead
      */
-    private ?\Symfony\Component\HttpFoundation\Request $request = null;
+    private ?Request $request = null;
 
     public function __construct(?RequestStack $requestStack = null)
     {
@@ -46,7 +46,7 @@ class UriPrefixVoter implements VoterInterface
     /**
      * @deprecated since version 2.2. Pass a RequestStack to the constructor instead.
      */
-    public function setRequest(?Request $request = null)
+    public function setRequest(?Request $request = null): void
     {
         @trigger_error(
             sprintf(
@@ -83,7 +83,7 @@ class UriPrefixVoter implements VoterInterface
         return null;
     }
 
-    private function getRequest()
+    private function getRequest(): ?Request
     {
         if ($this->requestStack) {
             return $this->requestStack->getMainRequest();

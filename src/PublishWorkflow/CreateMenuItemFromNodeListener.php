@@ -23,7 +23,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
  */
 class CreateMenuItemFromNodeListener
 {
-    private \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $publishWorkflowChecker;
+    private AuthorizationCheckerInterface $publishWorkflowChecker;
 
     /**
      * The permission to check for when doing the publish workflow check.
@@ -44,10 +44,8 @@ class CreateMenuItemFromNodeListener
 
     /**
      * Check if the node on the event is published, otherwise skip it.
-     *
-     * @param CreateMenuItemFromNodeEvent $event
      */
-    public function onCreateMenuItemFromNode(CreateMenuItemFromNodeEvent $event)
+    public function onCreateMenuItemFromNode(CreateMenuItemFromNodeEvent $event): void
     {
         $node = $event->getNode();
 

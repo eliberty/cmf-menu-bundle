@@ -22,7 +22,7 @@ class RenderingTest extends BaseTestCase
         ]);
     }
 
-    public function testWithAutomaticLinkType()
+    public function testWithAutomaticLinkType(): void
     {
         $template = $this->getContainer()->get('twig')->createTemplate('{{ knp_menu_render("test-menu") }}');
         $dom = new \DOMDocument();
@@ -40,7 +40,7 @@ class RenderingTest extends BaseTestCase
         $this->assertMenu($items, $dom);
     }
 
-    public function testWithExplicitLinkType()
+    public function testWithExplicitLinkType(): void
     {
         $template = $this->getContainer()->get('twig')->createTemplate('{{ knp_menu_render("another-menu") }}');
         $dom = new \DOMDocument();

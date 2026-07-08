@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class CmfMenuExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
         $bundles = $container->getParameter('kernel.bundles');
@@ -45,7 +45,7 @@ class CmfMenuExtension extends Extension
         }
     }
 
-    public function loadVoters($config, XmlFileLoader $loader, ContainerBuilder $container)
+    public function loadVoters($config, XmlFileLoader $loader, ContainerBuilder $container): void
     {
         $loader->load('voters.xml');
 
@@ -68,7 +68,7 @@ class CmfMenuExtension extends Extension
         }
     }
 
-    public function loadPhpcr($config, XmlFileLoader $loader, ContainerBuilder $container)
+    public function loadPhpcr($config, XmlFileLoader $loader, ContainerBuilder $container): void
     {
         $keys = [
             'menu_document_class' => 'menu_document.class',

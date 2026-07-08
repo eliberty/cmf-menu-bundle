@@ -28,15 +28,11 @@ interface MenuNodeReferrersInterface
 
     /**
      * Add a menu node for this content.
-     *
-     * @param NodeInterface $menu
      */
     public function addMenuNode(NodeInterface $menu);
 
     /**
      * Remove a menu node for this content.
-     *
-     * @param NodeInterface $menu
      */
     public function removeMenuNode(NodeInterface $menu);
 }

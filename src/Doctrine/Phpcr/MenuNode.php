@@ -43,7 +43,7 @@ class MenuNode extends ModelMenuNode implements HierarchyInterface
      * @deprecated For BC with the PHPCR-ODM 1.4 HierarchyInterface
      * @see setParentDocument
      */
-    public function setParent($parent)
+    public function setParent($parent): \Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode
     {
         @trigger_error('The '.__METHOD__.'() method is deprecated and will be removed in version 3.0. Use setParentDocument() instead.', E_USER_DEPRECATED);
 
@@ -54,7 +54,7 @@ class MenuNode extends ModelMenuNode implements HierarchyInterface
      * @deprecated For BC with the PHPCR-ODM 1.4 HierarchyInterface
      * @see getParentDocument
      */
-    public function getParent()
+    public function getParent(): ?object
     {
         @trigger_error('The '.__METHOD__.'() method is deprecated and will be removed in version 3.0. Use getParentDocument() instead.', E_USER_DEPRECATED);
 
@@ -80,7 +80,6 @@ class MenuNode extends ModelMenuNode implements HierarchyInterface
     /**
      * Add a child menu node, automatically setting the parent node.
      *
-     * @param NodeInterface $child
      *
      * @return NodeInterface - The newly added child node
      */

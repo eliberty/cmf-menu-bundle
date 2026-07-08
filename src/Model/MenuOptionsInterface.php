@@ -22,15 +22,12 @@ interface MenuOptionsInterface extends NodeInterface
 {
     /**
      * Whether or not to display this menu.
-     *
-     * @return bool
      */
     public function getDisplay(): bool;
 
     /**
      * Set whether or not this menu should be displayed.
      *
-     * @param bool $bool
      *
      * @return MenuOptionsInterface
      */
@@ -38,15 +35,12 @@ interface MenuOptionsInterface extends NodeInterface
 
     /**
      * Whether or not this menu should show its children.
-     *
-     * @return bool
      */
     public function getDisplayChildren(): bool;
 
     /**
      * Set whether or not this menu should show its children.
      *
-     * @param bool $bool
      *
      * @return MenuOptionsInterface
      */
@@ -54,8 +48,6 @@ interface MenuOptionsInterface extends NodeInterface
 
     /**
      * Return the attributes associated with this menu node.
-     *
-     * @return array
      */
     public function getAttributes(): array;
 
@@ -73,8 +65,6 @@ interface MenuOptionsInterface extends NodeInterface
      *
      * @param string $name    The name of the attribute to return
      * @param string $default The value to return if the attribute doesn't exist
-     *
-     * @return string
      */
     public function getAttribute(string $name, ?string $default = null): string;
 
@@ -90,15 +80,12 @@ interface MenuOptionsInterface extends NodeInterface
 
     /**
      * Get the link HTML attributes.
-     *
-     * @return array
      */
     public function getLinkAttributes(): array;
 
     /**
      * Set the link HTML attributes as associative array.
      *
-     * @param array $linkAttributes
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
@@ -106,15 +93,12 @@ interface MenuOptionsInterface extends NodeInterface
 
     /**
      * Return the children attributes.
-     *
-     * @return array
      */
     public function getChildrenAttributes(): array;
 
     /**
      * Set the children attributes.
      *
-     * @param array $childrenAttributes
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */
@@ -122,15 +106,12 @@ interface MenuOptionsInterface extends NodeInterface
 
     /**
      * Get the label HTML attributes.
-     *
-     * @return array
      */
     public function getLabelAttributes(): array;
 
     /**
      * Set the label HTML attributes as associative array.
      *
-     * @param array $labelAttributes
      *
      * @return MenuOptionsInterface The item to provide a fluent interface
      */

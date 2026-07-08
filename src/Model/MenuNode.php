@@ -110,7 +110,7 @@ class MenuNode extends MenuNodeBase implements
      *
      * @param string $locale the locale to use for this menu node
      */
-    public function setLocale($locale)
+    public function setLocale($locale): void
     {
         $this->locale = $locale;
     }
@@ -168,7 +168,7 @@ class MenuNode extends MenuNodeBase implements
      *
      * @param bool $publishable
      */
-    public function setPublishable($publishable)
+    public function setPublishable($publishable): void
     {
         $this->publishable = $publishable;
     }
@@ -184,7 +184,7 @@ class MenuNode extends MenuNodeBase implements
     /**
      * {@inheritdoc}
      */
-    public function setPublishStartDate(?\DateTime $date = null)
+    public function setPublishStartDate(?\DateTime $date = null): void
     {
         $this->publishStartDate = $date;
     }
@@ -200,7 +200,7 @@ class MenuNode extends MenuNodeBase implements
     /**
      * {@inheritdoc}
      */
-    public function setPublishEndDate(?\DateTime $date = null)
+    public function setPublishEndDate(?\DateTime $date = null): void
     {
         $this->publishEndDate = $date;
     }
@@ -228,7 +228,7 @@ class MenuNode extends MenuNodeBase implements
      *
      * @param $linkType string - one of uri, route or content
      */
-    public function setLinkType($linkType)
+    public function setLinkType($linkType): void
     {
         $this->linkType = $linkType;
     }

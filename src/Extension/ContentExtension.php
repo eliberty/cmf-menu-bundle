@@ -25,7 +25,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class ContentExtension implements ExtensionInterface
 {
-    private \Symfony\Component\Routing\Generator\UrlGeneratorInterface $contentRouter;
+    private UrlGeneratorInterface $contentRouter;
 
     /**
      * @param UrlGeneratorInterface $contentRouter A router to generate URLs based on the content object
@@ -39,8 +39,6 @@ class ContentExtension implements ExtensionInterface
      * Builds the full option array used to configure the item.
      *
      * @param array $options The options processed by the previous extensions
-     *
-     * @return array
      */
     public function buildOptions(array $options): array
     {
@@ -79,9 +77,6 @@ class ContentExtension implements ExtensionInterface
 
     /**
      * Configures the item with the passed options.
-     *
-     * @param ItemInterface $item
-     * @param array         $options
      */
     public function buildItem(ItemInterface $item, array $options): void
     {

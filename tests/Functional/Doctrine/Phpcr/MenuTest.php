@@ -34,7 +34,7 @@ class MenuTest extends BaseTestCase
         $this->rootDocument = $this->dm->find(null, '/test');
     }
 
-    public function testPersist()
+    public function testPersist(): void
     {
         $menu = new Menu();
         $menu->setPosition($this->rootDocument, 'main');
@@ -62,7 +62,7 @@ class MenuTest extends BaseTestCase
      * @dataProvider getInvalidChildren
      * @expectedException \Doctrine\ODM\PHPCR\Exception\OutOfBoundsException
      */
-    public function testPersistInvalidChild($invalidChild)
+    public function testPersistInvalidChild($invalidChild): void
     {
         $menu = new Menu();
         $menu->setPosition($this->rootDocument, 'main');

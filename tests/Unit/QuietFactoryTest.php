@@ -35,7 +35,7 @@ class QuietFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideItemsWithNotExistingLinks */
-    public function testAllowEmptyItemsReturnsItemWithoutURL(array $firstOptions, array $secondOptions)
+    public function testAllowEmptyItemsReturnsItemWithoutURL(array $firstOptions, array $secondOptions): void
     {
         $this->innerFactory->createItem('Home', $firstOptions)
             ->willThrow('Symfony\Component\Routing\Exception\RouteNotFoundException');

@@ -38,7 +38,7 @@ class MenuContentVoter implements VoterInterface
     /**
      * {@inheritdoc}
      */
-    public function supportsAttribute($attribute)
+    public function supportsAttribute($attribute): bool
     {
         return PublishWorkflowChecker::VIEW_ATTRIBUTE === $attribute
             || PublishWorkflowChecker::VIEW_ANONYMOUS_ATTRIBUTE === $attribute
@@ -48,7 +48,7 @@ class MenuContentVoter implements VoterInterface
     /**
      * {@inheritdoc}
      */
-    public function supportsClass($class)
+    public function supportsClass($class): bool
     {
         return is_subclass_of($class, MenuNode::class);
     }

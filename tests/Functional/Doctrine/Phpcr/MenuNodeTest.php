@@ -49,7 +49,7 @@ class MenuNodeTest extends BaseTestCase
         $this->child1->setName('child1');
     }
 
-    public function testMenuNode()
+    public function testMenuNode(): void
     {
         $data = [
             'name' => 'test-node',
@@ -101,7 +101,6 @@ class MenuNodeTest extends BaseTestCase
         foreach ($data as $key => $value) {
             $refl = new \ReflectionClass($menuNode);
             $prop = $refl->getProperty($key);
-            $prop->setAccessible(true);
             $prop->setValue($menuNode, $value);
         }
 
@@ -117,7 +116,6 @@ class MenuNodeTest extends BaseTestCase
 
         foreach ($data as $key => $value) {
             $prop = $refl->getProperty($key);
-            $prop->setAccessible(true);
             $v = $prop->getValue($menuNode);
 
             if (!is_object($value)) {
@@ -127,7 +125,6 @@ class MenuNodeTest extends BaseTestCase
 
         // test objects
         $prop = $refl->getProperty('content');
-        $prop->setAccessible(true);
         $content = $prop->getValue($menuNode);
         $this->assertEquals('fake_weak_content', $content->getName());
 
@@ -166,7 +163,7 @@ class MenuNodeTest extends BaseTestCase
      * @expectedException \Doctrine\ODM\PHPCR\Exception\OutOfBoundsException
      * @expectedExceptionMessage Allowed child classes "Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode"
      */
-    public function testPersistInvalidChild()
+    public function testPersistInvalidChild(): void
     {
         $menuNode = new MenuNode();
         $menuNode->setName('menu-node');

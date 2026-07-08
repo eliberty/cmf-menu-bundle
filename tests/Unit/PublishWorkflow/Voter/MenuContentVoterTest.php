@@ -39,7 +39,7 @@ class MenuContentVoterTest extends \PHPUnit_Framework_Testcase
      */
     private $pwfc;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->pwfc = $this->getMockBuilder('Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishWorkflowChecker')
             ->disableOriginalConstructor()
@@ -139,7 +139,7 @@ class MenuContentVoterTest extends \PHPUnit_Framework_Testcase
     /**
      * @dataProvider providePublishWorkflowChecker
      */
-    public function testPublishWorkflowChecker($expected, $attributes, $content, $isMenuPusblishable, $isContentPublishable)
+    public function testPublishWorkflowChecker($expected, $attributes, $content, $isMenuPusblishable, $isContentPublishable): void
     {
         $attributes = (array) $attributes;
         $menuNode = $this->getMock('Symfony\Cmf\Bundle\MenuBundle\Model\MenuNode');
@@ -155,7 +155,7 @@ class MenuContentVoterTest extends \PHPUnit_Framework_Testcase
         $this->assertEquals($expected, $this->voter->vote($this->token, $menuNode, $attributes));
     }
 
-    public function testUnsupportedClass()
+    public function testUnsupportedClass(): void
     {
         $result = $this->voter->vote(
             $this->token,

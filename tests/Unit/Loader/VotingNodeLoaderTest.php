@@ -21,7 +21,7 @@ class VotingNodeLoaderTest extends \PHPUnit_Framework_TestCase
 
     private $dispatcher;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->factory = $this->getMock('Knp\Menu\FactoryInterface');
         $this->dispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
@@ -31,7 +31,7 @@ class VotingNodeLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getCreateFromNodeData
      */
-    public function testCreateFromNode($options)
+    public function testCreateFromNode($options): void
     {
         // promises
         $node2 = $this->getNode('node2');
@@ -47,7 +47,7 @@ class VotingNodeLoaderTest extends \PHPUnit_Framework_TestCase
 
         $nodes = 3;
         if (!$options['node2_is_published']) {
-            $dispatchMethodMock->will($this->returnCallback(function ($name, $event) use ($node2) {
+            $dispatchMethodMock->will($this->returnCallback(function ($name, $event) use ($node2): void {
                 if ($event->getNode() === $node2) {
                     $event->setSkipNode(true);
                 }

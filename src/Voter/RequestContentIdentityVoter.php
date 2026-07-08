@@ -32,9 +32,9 @@ class RequestContentIdentityVoter implements VoterInterface
      */
     private $requestKey;
 
-    private ?\Symfony\Component\HttpFoundation\RequestStack $requestStack = null;
+    private ?RequestStack $requestStack = null;
 
-    private ?\Symfony\Component\HttpFoundation\Request $request = null;
+    private ?Request $request = null;
 
     /**
      * @param string $requestKey The key to look up the content in the request
@@ -49,7 +49,7 @@ class RequestContentIdentityVoter implements VoterInterface
     /**
      * @deprecated since version 2.2. Pass a RequestStack to the constructor instead.
      */
-    public function setRequest(?Request $request = null)
+    public function setRequest(?Request $request = null): void
     {
         @trigger_error(
             sprintf(
@@ -85,7 +85,7 @@ class RequestContentIdentityVoter implements VoterInterface
         return null;
     }
 
-    private function getRequest()
+    private function getRequest(): ?Request
     {
         if ($this->requestStack) {
             return $this->requestStack->getMainRequest();

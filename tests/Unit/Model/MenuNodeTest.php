@@ -15,7 +15,7 @@ use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode;
 
 class MenuNodeTest extends \PHPUnit_Framework_Testcase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $c1 = new MenuNode();
         $c1->setLabel('Child 1');
@@ -42,7 +42,7 @@ class MenuNodeTest extends \PHPUnit_Framework_Testcase
             ->setLinkType('linktype');
     }
 
-    public function testGetters()
+    public function testGetters(): void
     {
         $this->assertSame($this->parentNode, $this->node->getParentDocument());
         $this->assertEquals('test', $this->node->getName());
@@ -67,7 +67,7 @@ class MenuNodeTest extends \PHPUnit_Framework_Testcase
         $this->assertEquals('linktype', $this->node->getLinkType());
     }
 
-    public function testAddChild()
+    public function testAddChild(): void
     {
         $c1 = new MenuNode();
         $c2 = new MenuNode();
@@ -81,14 +81,14 @@ class MenuNodeTest extends \PHPUnit_Framework_Testcase
         $this->assertSame($c2, $ret);
     }
 
-    public function testMultilang()
+    public function testMultilang(): void
     {
         $n = new MenuNode();
         $n->setLocale('fr');
         $this->assertEquals('fr', $n->getLocale());
     }
 
-    public function testPublishTimePeriodInterface()
+    public function testPublishTimePeriodInterface(): void
     {
         $startDate = new \DateTime('2013-01-01');
         $endDate = new \DateTime('2013-02-01');
@@ -116,7 +116,7 @@ class MenuNodeTest extends \PHPUnit_Framework_Testcase
     /**
      * @depends testGetters
      */
-    public function testGetOptions()
+    public function testGetOptions(): void
     {
         $this->assertEquals([
             'uri' => $this->node->getUri(),

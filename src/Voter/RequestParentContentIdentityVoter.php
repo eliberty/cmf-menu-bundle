@@ -38,9 +38,9 @@ class RequestParentContentIdentityVoter implements VoterInterface
      */
     private $childClass;
 
-    private ?\Symfony\Component\HttpFoundation\RequestStack $requestStack = null;
+    private ?RequestStack $requestStack = null;
 
-    private ?\Symfony\Component\HttpFoundation\Request $request = null;
+    private ?Request $request = null;
 
     /**
      * @param string            $requestKey   The key to look up the content in the request
@@ -48,7 +48,6 @@ class RequestParentContentIdentityVoter implements VoterInterface
      * @param string            $childClass   Fully qualified class name of the model class
      *                                        the content in the request must have to
      *                                        attempt calling getParentDocument on it
-     * @param RequestStack|null $requestStack
      */
     public function __construct($requestKey, $childClass, ?RequestStack $requestStack = null)
     {
@@ -60,7 +59,7 @@ class RequestParentContentIdentityVoter implements VoterInterface
     /**
      * @deprecated since version 2.2. Pass a RequestStack to the constructor instead.
      */
-    public function setRequest(?Request $request = null)
+    public function setRequest(?Request $request = null): void
     {
         @trigger_error(
             sprintf(
@@ -97,7 +96,7 @@ class RequestParentContentIdentityVoter implements VoterInterface
         return null;
     }
 
-    private function getRequest()
+    private function getRequest(): ?Request
     {
         if ($this->requestStack) {
             return $this->requestStack->getMainRequest();

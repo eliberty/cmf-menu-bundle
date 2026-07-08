@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class RequestContentIdentityVoterTest extends RequestContentIdentityVoterTestCase
 {
-    protected function buildVoter(Request $request)
+    protected function buildVoter(Request $request): RequestContentIdentityVoter
     {
         $requestStack = new RequestStack();
         $requestStack->push($request);
@@ -25,7 +25,7 @@ class RequestContentIdentityVoterTest extends RequestContentIdentityVoterTestCas
         return new RequestContentIdentityVoter('_content', $requestStack);
     }
 
-    public function testSkipsWhenNoRequestIsAvailable()
+    public function testSkipsWhenNoRequestIsAvailable(): void
     {
         $voter = new RequestContentIdentityVoter('_content', new RequestStack());
 

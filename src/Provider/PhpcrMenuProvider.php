@@ -24,7 +24,7 @@ use PHPCR\Util\PathHelper;
 
 class PhpcrMenuProvider implements MenuProviderInterface
 {
-    private \Knp\Menu\Loader\NodeLoader $loader;
+    private NodeLoader $loader;
 
     /**
      * base for menu ids.
@@ -73,7 +73,7 @@ class PhpcrMenuProvider implements MenuProviderInterface
      *
      * @param string|null $managerName
      */
-    public function setManagerName($managerName)
+    public function setManagerName($managerName): void
     {
         $this->managerName = $managerName;
     }
@@ -81,7 +81,7 @@ class PhpcrMenuProvider implements MenuProviderInterface
     /**
      * @param string $menuRoot
      */
-    public function setMenuRoot($menuRoot)
+    public function setMenuRoot($menuRoot): void
     {
         $this->menuRoot = $menuRoot;
     }
@@ -105,7 +105,7 @@ class PhpcrMenuProvider implements MenuProviderInterface
      *
      * @param int $depth
      */
-    public function setPrefetch($depth)
+    public function setPrefetch($depth): void
     {
         $this->prefetch = (int) $depth;
     }
@@ -115,7 +115,7 @@ class PhpcrMenuProvider implements MenuProviderInterface
      *
      * @return int The depth to use when fetching menus
      */
-    public function getPrefetch()
+    public function getPrefetch(): int
     {
         return $this->prefetch;
     }
@@ -129,10 +129,8 @@ class PhpcrMenuProvider implements MenuProviderInterface
      *
      * @param string $name    Name of the menu to load. This can be an
      *                        absolute PHPCR path or one relative to the menu root
-     * @param array  $options
      *
      * @return ItemInterface The menu (sub)tree starting with name
-     *
      * @throws \InvalidArgumentException if the menu can not be found
      */
     public function get(string $name, array $options = []): ItemInterface
@@ -155,7 +153,6 @@ class PhpcrMenuProvider implements MenuProviderInterface
      *
      * @param string $name    Name of the menu to load. This can be an
      *                        absolute PHPCR path or one relative to the menu root
-     * @param array  $options
      *
      * @return bool Whether a menu with this name can be loaded by this provider
      */
@@ -176,7 +173,7 @@ class PhpcrMenuProvider implements MenuProviderInterface
      * @throws \InvalidArgumentException Only if $throw is true throws this
      *                                   exception if the name is empty or no menu found
      */
-    private function find($name, $throw)
+    private function find($name, $throw): false|NodeInterface
     {
         if (!$name) {
             if ($throw) {

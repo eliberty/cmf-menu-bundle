@@ -26,9 +26,9 @@ use Symfony\Contracts\EventDispatcher\Event;
  */
 class CreateMenuItemFromNodeEvent extends Event
 {
-    private \Knp\Menu\NodeInterface $node;
+    private NodeInterface $node;
 
-    private ?\Knp\Menu\ItemInterface $item = null;
+    private ?ItemInterface $item = null;
 
     /**
      * Whether or not to skip processing of this node.
@@ -40,9 +40,6 @@ class CreateMenuItemFromNodeEvent extends Event
      */
     private bool $skipChildren = false;
 
-    /**
-     * @param NodeInterface $node
-     */
     public function __construct(NodeInterface $node)
     {
         $this->node = $node;
@@ -50,10 +47,8 @@ class CreateMenuItemFromNodeEvent extends Event
 
     /**
      * Get the menu node that is about to be built.
-     *
-     * @return NodeInterface
      */
-    public function getNode()
+    public function getNode(): NodeInterface
     {
         return $this->node;
     }
@@ -66,7 +61,7 @@ class CreateMenuItemFromNodeEvent extends Event
      *
      * @return ItemInterface
      */
-    public function getItem()
+    public function getItem(): ?ItemInterface
     {
         return $this->item;
     }
@@ -80,7 +75,7 @@ class CreateMenuItemFromNodeEvent extends Event
      *
      * @param ItemInterface $item Menu item to use
      */
-    public function setItem(?ItemInterface $item = null)
+    public function setItem(?ItemInterface $item = null): void
     {
         $this->item = $item;
     }
@@ -95,7 +90,7 @@ class CreateMenuItemFromNodeEvent extends Event
      *
      * @param bool $skipNode
      */
-    public function setSkipNode($skipNode)
+    public function setSkipNode($skipNode): void
     {
         $this->skipNode = (bool) $skipNode;
     }
@@ -103,7 +98,7 @@ class CreateMenuItemFromNodeEvent extends Event
     /**
      * @return bool Whether the node associated to this event is to be skipped
      */
-    public function isSkipNode()
+    public function isSkipNode(): bool
     {
         return $this->skipNode;
     }
@@ -119,7 +114,7 @@ class CreateMenuItemFromNodeEvent extends Event
      *
      * @param bool $skipChildren
      */
-    public function setSkipChildren($skipChildren)
+    public function setSkipChildren($skipChildren): void
     {
         $this->skipChildren = (bool) $skipChildren;
     }
@@ -128,7 +123,7 @@ class CreateMenuItemFromNodeEvent extends Event
      * @return bool Whether the children of the node associated to this event
      *              should be handled or ignored
      */
-    public function isSkipChildren()
+    public function isSkipChildren(): bool
     {
         return $this->skipChildren;
     }

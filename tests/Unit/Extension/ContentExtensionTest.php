@@ -20,7 +20,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
 
     private $subject;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->generator = $this->getMock('Symfony\Component\Routing\Generator\UrlGeneratorInterface');
         $this->subject = new ContentExtension($this->generator);
@@ -37,7 +37,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getLinkTypeData
      */
-    public function testUriLinkType($typeSet)
+    public function testUriLinkType($typeSet): void
     {
         $options = ['uri' => '/configured_uri'];
         if ($typeSet) {
@@ -53,7 +53,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getLinkTypeData
      */
-    public function testRouteLinkType($typeSet)
+    public function testRouteLinkType($typeSet): void
     {
         $options = ['route' => 'configured_route'];
         if ($typeSet) {
@@ -69,7 +69,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getLinkTypeData
      */
-    public function testContentLinkType($typeSet)
+    public function testContentLinkType($typeSet): void
     {
         $options = ['content' => 'configured_content', 'routeParameters' => ['test' => 'foo'], 'routeAbsolute' => true];
         if ($typeSet) {
@@ -94,7 +94,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testOptionsAsRemovedWhenLinkTypeIsElse()
+    public function testOptionsAsRemovedWhenLinkTypeIsElse(): void
     {
         $options = [
             'uri' => '/configured_uri',
@@ -123,7 +123,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Invalid link type
      */
-    public function testFailsOnInvalidLinkType()
+    public function testFailsOnInvalidLinkType(): void
     {
         $this->subject->buildOptions(['linkType' => 'not_valid']);
     }
@@ -132,7 +132,7 @@ class ContentExtensionTest extends \PHPUnit_Framework_TestCase
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage could not find content option
      */
-    public function testFailsWhenContentIsNotAvailable()
+    public function testFailsWhenContentIsNotAvailable(): void
     {
         $this->subject->buildOptions(['linkType' => 'content']);
     }

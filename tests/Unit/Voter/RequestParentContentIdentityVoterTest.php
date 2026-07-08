@@ -27,19 +27,19 @@ class RequestParentContentIdentityVoterTest extends \PHPUnit_Framework_TestCase
         $this->voter->setRequest($this->request->reveal());
     }
 
-    public function testSkipsWhenNoContentIsAvailable()
+    public function testSkipsWhenNoContentIsAvailable(): void
     {
         $this->assertNull($this->voter->matchItem($this->createItem()));
     }
 
-    public function testSkipsWhenNoRequestIsAvailable()
+    public function testSkipsWhenNoRequestIsAvailable(): void
     {
         $this->voter->setRequest(null);
 
         $this->assertNull($this->voter->matchItem($this->createItem()));
     }
 
-    public function testSkipsWhenNoContentAttributeWasDefined()
+    public function testSkipsWhenNoContentAttributeWasDefined(): void
     {
         $attributes = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
         $attributes->has('_content')->willReturn(false);
@@ -48,7 +48,7 @@ class RequestParentContentIdentityVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->voter->matchItem($this->createItem(new \stdClass())));
     }
 
-    public function testSkipsWhenContentObjectDoesNotImplementChildClass()
+    public function testSkipsWhenContentObjectDoesNotImplementChildClass(): void
     {
         $attributes = $this->prophesize('Symfony\Component\HttpFoundation\ParameterBag');
         $attributes->has('_content')->willReturn(false);
@@ -57,7 +57,7 @@ class RequestParentContentIdentityVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->voter->matchItem($this->createItem(new \stdClass())));
     }
 
-    public function testMatchesWhenParentContentIsEqualToCurrentContent()
+    public function testMatchesWhenParentContentIsEqualToCurrentContent(): void
     {
         $parent = new \stdClass();
         $content = new RequestParentContentIdentityVoterTest_ChildContent($parent);
@@ -70,7 +70,7 @@ class RequestParentContentIdentityVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->voter->matchItem($this->createItem($parent)));
     }
 
-    public function testSkipsWhenParentContentIsNotEqual()
+    public function testSkipsWhenParentContentIsNotEqual(): void
     {
         $content = new RequestParentContentIdentityVoterTest_ChildContent(new \stdClass());
 

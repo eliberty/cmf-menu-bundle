@@ -73,7 +73,7 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
@@ -83,7 +83,7 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
         return $this->title;
     }
 
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }
@@ -93,17 +93,17 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
         return $this->menuNodes;
     }
 
-    public function addMenuNode(NodeInterface $menuNode)
+    public function addMenuNode(NodeInterface $menuNode): void
     {
         $this->menuNodes->add($menuNode);
     }
 
-    public function addRoute($route)
+    public function addRoute($route): void
     {
         $this->routes->add($route);
     }
 
-    public function removeMenuNode(NodeInterface $menuNode)
+    public function removeMenuNode(NodeInterface $menuNode): void
     {
         $this->menuNodes->remove($menuNode);
     }
@@ -116,7 +116,7 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
         return $this->routes;
     }
 
-    public function setParentDocument($parent)
+    public function setParentDocument($parent): void
     {
         $this->parent = $parent;
     }
@@ -126,7 +126,7 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
         return $this->parent;
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -146,7 +146,7 @@ class Content implements MenuNodeReferrersInterface, RouteReferrersReadInterface
      *
      * @param bool $publishable
      */
-    public function setPublishable($publishable)
+    public function setPublishable($publishable): void
     {
         $this->published = $publishable;
     }

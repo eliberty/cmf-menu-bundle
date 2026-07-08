@@ -39,12 +39,12 @@ abstract class RequestContentIdentityVoterTestCase extends \PHPUnit_Framework_Te
 
     abstract public function testSkipsWhenNoRequestIsAvailable();
 
-    public function testSkipsWhenNoContentIsAvailable()
+    public function testSkipsWhenNoContentIsAvailable(): void
     {
         $this->assertNull($this->voter->matchItem($this->createItem()));
     }
 
-    public function testSkipsWhenNoContentAttributeWasDefined()
+    public function testSkipsWhenNoContentAttributeWasDefined(): void
     {
         $attributes = $this->prophesize(ParameterBag::class);
         $attributes->has('_content')->willReturn(false);
@@ -53,7 +53,7 @@ abstract class RequestContentIdentityVoterTestCase extends \PHPUnit_Framework_Te
         $this->assertNull($this->voter->matchItem($this->createItem(new \stdClass())));
     }
 
-    public function testMatchesWhenContentIsEqualToCurrentContent()
+    public function testMatchesWhenContentIsEqualToCurrentContent(): void
     {
         $content = new \stdClass();
 
@@ -65,7 +65,7 @@ abstract class RequestContentIdentityVoterTestCase extends \PHPUnit_Framework_Te
         $this->assertTrue($this->voter->matchItem($this->createItem($content)));
     }
 
-    public function testSkipsWhenContentIsNotEqual()
+    public function testSkipsWhenContentIsNotEqual(): void
     {
         $attributes = $this->prophesize(ParameterBag::class);
         $attributes->has('_content')->willReturn(true);

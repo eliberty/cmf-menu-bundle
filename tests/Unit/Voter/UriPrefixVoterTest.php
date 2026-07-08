@@ -28,24 +28,24 @@ class UriPrefixVoterTest extends \PHPUnit_Framework_TestCase
         $this->voter->setRequest($this->request->reveal());
     }
 
-    public function testSkipsWhenNoContentIsAvailable()
+    public function testSkipsWhenNoContentIsAvailable(): void
     {
         $this->assertNull($this->voter->matchItem($this->createItem()));
     }
 
-    public function testSkipsWhenNoRequestIsAvailable()
+    public function testSkipsWhenNoRequestIsAvailable(): void
     {
         $this->voter->setRequest(null);
 
         $this->assertNull($this->voter->matchItem($this->createItem()));
     }
 
-    public function testSkipsIfContentDoesNotExtendRoute()
+    public function testSkipsIfContentDoesNotExtendRoute(): void
     {
         $this->assertNull($this->voter->matchItem($this->createItem(new \stdClass())));
     }
 
-    public function testSkipsIfContentHasNoCurrentUriPrefixOption()
+    public function testSkipsIfContentHasNoCurrentUriPrefixOption(): void
     {
         $content = $this->prophesize('Symfony\Component\Routing\Route');
         $content->hasOption('currentUriPrefix')->willReturn(false);
@@ -53,7 +53,7 @@ class UriPrefixVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->voter->matchItem($this->createItem($content->reveal())));
     }
 
-    public function testMatchesCurrentUriPrefixOptionWithCurrentUri()
+    public function testMatchesCurrentUriPrefixOptionWithCurrentUri(): void
     {
         $content = $this->prophesize('Symfony\Component\Routing\Route');
         $content->hasOption('currentUriPrefix')->willReturn(true);
@@ -64,7 +64,7 @@ class UriPrefixVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->voter->matchItem($this->createItem($content->reveal())));
     }
 
-    public function testSkipsWhenThereIsNoMatch()
+    public function testSkipsWhenThereIsNoMatch(): void
     {
         $content = $this->prophesize('Symfony\Component\Routing\Route');
         $content->hasOption('currentUriPrefix')->willReturn(true);
@@ -75,7 +75,7 @@ class UriPrefixVoterTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->voter->matchItem($this->createItem($content->reveal())));
     }
 
-    public function testReplacesSpecialLocalePlaceholderInCurrentUriPrefix()
+    public function testReplacesSpecialLocalePlaceholderInCurrentUriPrefix(): void
     {
         $content = $this->prophesize('Symfony\Component\Routing\Route');
         $content->hasOption('currentUriPrefix')->willReturn(true);

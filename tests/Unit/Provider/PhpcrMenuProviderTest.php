@@ -24,7 +24,7 @@ class PhpcrMenuProviderTest extends \PHPUnit_Framework_Testcase
 {
     private $manager;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->manager = $this->prophesize(DocumentManagerInterface::class);
         $this->registry = $this->prophesize(ManagerRegistry::class);
@@ -40,7 +40,7 @@ class PhpcrMenuProviderTest extends \PHPUnit_Framework_Testcase
     /**
      *  @dataProvider provideMenuTests
      */
-    public function testGet($menuRoot, $name, $expectedPath)
+    public function testGet($menuRoot, $name, $expectedPath): void
     {
         $this->manager->find(null, $expectedPath)
             ->willReturn($this->document->reveal());
@@ -56,7 +56,7 @@ class PhpcrMenuProviderTest extends \PHPUnit_Framework_Testcase
     /**
      *  @dataProvider provideMenuTests
      */
-    public function testHas($menuRoot, $name, $expectedPath)
+    public function testHas($menuRoot, $name, $expectedPath): void
     {
         $this->manager->find(null, $expectedPath)
             ->willReturn($this->document->reveal());
@@ -65,7 +65,7 @@ class PhpcrMenuProviderTest extends \PHPUnit_Framework_Testcase
         $this->assertTrue($provider->has($name));
     }
 
-    public function testHasNot()
+    public function testHasNot(): void
     {
         $this->session->getNode()->shouldNotBeCalled();
         $this->session->getNamespacePrefixes()
@@ -88,7 +88,7 @@ class PhpcrMenuProviderTest extends \PHPUnit_Framework_Testcase
         ];
     }
 
-    private function createProvider($basePath)
+    private function createProvider($basePath): PhpcrMenuProvider
     {
         return new PhpcrMenuProvider(
             $this->nodeLoader->reveal(),

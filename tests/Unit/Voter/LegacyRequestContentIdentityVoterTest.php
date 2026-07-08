@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class LegacyRequestContentIdentityVoterTest extends RequestContentIdentityVoterTestCase
 {
-    protected function buildVoter(Request $request)
+    protected function buildVoter(Request $request): RequestContentIdentityVoter
     {
         $voter = new RequestContentIdentityVoter('_content');
         $voter->setRequest($request);
@@ -27,7 +27,7 @@ class LegacyRequestContentIdentityVoterTest extends RequestContentIdentityVoterT
         return $voter;
     }
 
-    public function testSkipsWhenNoRequestIsAvailable()
+    public function testSkipsWhenNoRequestIsAvailable(): void
     {
         $this->voter->setRequest(null);
 
